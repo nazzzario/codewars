@@ -22,33 +22,23 @@ public class ListCount {
             t1.join();
             t2.join();
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
 
         int res = 0;
         try {
-            res = leftPart.get() + rightPart.get();
+            Integer leftPartRes = leftPart.get();
+            Integer rightPartRes = rightPart.get();
+            System.out.println("leftPart = " + leftPartRes);
+            System.out.println("rightPart = " + rightPartRes);
+            res = rightPartRes + leftPartRes;
         } catch (InterruptedException | ExecutionException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
         System.out.println("Total number of primes: " + res);
 
-
-
     }
 
-
-
-    protected static boolean isPrime(int n) {
-        if (n <= 1)
-            return false;
-
-        for (int i = 2; i < n; i++)
-            if (n % i == 0)
-                return false;
-
-        return true;
-    }
 }
 
 class MyThread implements Callable<Integer> {
@@ -62,10 +52,22 @@ class MyThread implements Callable<Integer> {
     public Integer call() {
         int primeNumbers = 0;
         for (int i: numbers) {
-            if(ListCount.isPrime(i)){
+            if(isPrime(i)){
                 primeNumbers++;
             }
         }
         return primeNumbers;
+    }
+
+    private boolean isPrime(int n) {
+        if (n <= 1){
+            return false;
+        }
+        for (int i = 2; i < n; i++){
+            if (n % i == 0){
+                return false;
+            }
+        }
+        return true;
     }
 }
