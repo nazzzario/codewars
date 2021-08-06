@@ -1,12 +1,13 @@
 package com.shpp.p2p.cs.nkrasnovoronka.assignment14.threads;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class HelloThreads {
     public static void main(String[] args) {
         BlockingDeque blockingDeque = new BlockingDeque();
         Thread thread = new Thread(() -> {
-            while (!Thread.currentThread().isInterrupted()){
+            while (!Thread.currentThread().isInterrupted()) {
                 Runnable task;
                 try {
                     task = blockingDeque.get();
@@ -31,7 +32,7 @@ public class HelloThreads {
         }
     }
 
-    public static Runnable getTask(String name){
+    public static Runnable getTask(String name) {
         return () -> {
             System.out.printf("Hello from thread (%s)%n", name);
             try {
@@ -43,18 +44,19 @@ public class HelloThreads {
     }
 }
 
-class BlockingDeque{
+class BlockingDeque {
     Deque<Runnable> tasks = new ArrayDeque<>();
+
     public synchronized Runnable get() throws InterruptedException {
-        while (tasks.isEmpty()){
+        while (tasks.isEmpty()) {
             wait();
         }
         return tasks.pollLast();
     }
 
-    public synchronized void put(Runnable task){
+    public synchronized void put(Runnable task) {
         tasks.addLast(task);
-        notify();
+        notifyAll();
     }
 
 
