@@ -29,3 +29,17 @@ k
 ;src/com/shpp/p2p/cs/nkrasnovoronka/assignment14/Task11.java,9/b/9b0a6dd29f7c3d89fa7697eef3dbbec4262f0b28
 k
 ;src/com/shpp/p2p/cs/nkrasnovoronka/assignment14/Task18.java,9/f/9f3761014570fc5b759b9dc18aef15fcd90d8741
+y
+Isrc/com/shpp/p2p/cs/nkrasnovoronka/assignment14/threads/HelloThreads.java,6/c/6ccf95774307e9261959d7a59b11b46f49e65835
+v
+Fsrc/com/shpp/p2p/cs/nkrasnovoronka/assignment14/threads/ListCount.java,2/7/2748c99ee2e86d377a2fc4c6c7ee7fb1c0bf8d1f
+k
+;src/com/shpp/p2p/cs/nkrasnovoronka/assignment14/Task22.java,a/1/a1dbc80f778b1a070ad5535e5d8fe9cd93e85338
+i
+9src/com/shpp/p2p/cs/nkrasnovoronka/assignment14/Lift.java,a/8/a877455297aa5009d3d967cd1706824f2173e053
+k
+;src/com/shpp/p2p/cs/nkrasnovoronka/assignment14/Task21.java,c/b/cbe52400e07f40004a82c1d6b8884b59eacb6596
+k
+;src/com/shpp/p2p/cs/nkrasnovoronka/assignment14/Task20.java,f/0/f02ecc9b9b76c340ce84cb78cef1ce9c1147045d
+k
+;src/com/shpp/p2p/cs/nkrasnovoronka/assignment14/Task19.java,7/d/7dafac48c043c541c0b68bd268c86f94a6828efa

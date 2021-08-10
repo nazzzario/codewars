@@ -1,70 +1,56 @@
 package com.shpp.p2p.cs.nkrasnovoronka.assignment14.race;
 
-import java.util.Random;
-import java.util.concurrent.Callable;
-import java.util.concurrent.Phaser;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class Horse implements Callable<Horse> {
-    private final String name;
-    private Integer distance;
-
-    private final int FINAL_DISTANCE = 1000;
-
+public class Horse implements Runnable {
     private final int MIN_DISTANCE = 100;
     private final int MAX_DISTANCE = 200;
 
     private final int MIN_SLEEP = 400;
     private final int MAX_SLEEP = 500;
 
-    private Phaser phaser;
+    private final int FINISH_DISTANCE = 1000;
 
-    private final Random random;
+    private final String name;
+    private int currentDistance;
+    private final AtomicInteger position;
+    private volatile int finishPosition = 1;
 
-
-    public Horse(String name) {
+    public Horse(String name, AtomicInteger position) {
         this.name = name;
-        distance = 0;
-        random = new Random();
-        phaser.register();
-    }
-
-    @Override
-    public Horse call() {
-        phaser.arriveAndAwaitAdvance();
-        while (distance < FINAL_DISTANCE){
-            move();
-            sleep();
-        }
-        phaser.arriveAndDeregister();
-        return this;
+        this.position = position;
     }
 
     private void move(){
-        distance = distance + generateDistance();
+        int moveDistance = ThreadLocalRandom.current().nextInt(MIN_DISTANCE, MAX_DISTANCE);
+        currentDistance += moveDistance;
     }
 
     private void sleep(){
+        int sleepTime = ThreadLocalRandom.current().nextInt(MIN_SLEEP, MAX_SLEEP);
         try {
-            Thread.sleep(generateSleep());
+            Thread.sleep(sleepTime);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
     }
 
-    private int generateDistance(){
-        return random.nextInt(MAX_DISTANCE - MIN_DISTANCE) + MIN_DISTANCE;
-    }
-
-    private int generateSleep(){
-        return random.nextInt(MAX_SLEEP - MIN_SLEEP) + MIN_SLEEP;
+    @Override
+    public void run() {
+        while (currentDistance < FINISH_DISTANCE){
+            move();
+            sleep();
+        }
+        finishPosition = position.getAndIncrement();
+        System.out.printf("Horse %s finished in position %s%n", name, finishPosition);
     }
 
     @Override
     public String toString() {
         return "Horse{" +
                 "name='" + name + '\'' +
+                ", finishPosition=" + finishPosition +
                 '}';
     }
-
-
 }
