@@ -1,18 +1,11 @@
 package com.nkrasnovoronka.tasks.other.race;
 
 import java.util.concurrent.ThreadLocalRandom;
+import static com.nkrasnovoronka.tasks.other.race.HorseConstants.*;
 
 public class Horse implements Runnable {
-    private final int MIN_DISTANCE = 100;
-    private final int MAX_DISTANCE = 200;
-
-    private final int MIN_SLEEP = 400;
-    private final int MAX_SLEEP = 500;
-
-    private final int FINISH_DISTANCE = 1000;
 
     private final String name;
-    private int currentDistance;
     private final Race race;
 
     public Horse(String name, Race race) {
@@ -20,9 +13,22 @@ public class Horse implements Runnable {
         this.race = race;
     }
 
-    private void move(){
+
+
+    @Override
+    public void run() {
+        int currentDistance = 0;
+        while (currentDistance < FINISH_DISTANCE){
+           currentDistance += move(currentDistance);
+            sleep();
+        }
+        race.getFinishPosition().put(race.getPosition().getAndIncrement(), this);
+    }
+
+    private int move(int currentDistance){
         int moveDistance = ThreadLocalRandom.current().nextInt(MIN_DISTANCE, MAX_DISTANCE);
         currentDistance += moveDistance;
+        return currentDistance;
     }
 
     private void sleep(){
@@ -32,15 +38,6 @@ public class Horse implements Runnable {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
-    }
-
-    @Override
-    public void run() {
-        while (currentDistance < FINISH_DISTANCE){
-            move();
-            sleep();
-        }
-        race.getFinishPosition().put(race.getPosition().getAndIncrement(), this);
     }
 
     @Override
