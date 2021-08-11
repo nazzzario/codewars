@@ -1,7 +1,6 @@
 package com.nkrasnovoronka.tasks.other.race;
 
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Horse implements Runnable {
     private final int MIN_DISTANCE = 100;
@@ -14,12 +13,11 @@ public class Horse implements Runnable {
 
     private final String name;
     private int currentDistance;
-    private final AtomicInteger position;
-    private volatile int finishPosition = 1;
+    private final Race race;
 
-    public Horse(String name, AtomicInteger position) {
+    public Horse(String name, Race race) {
         this.name = name;
-        this.position = position;
+        this.race = race;
     }
 
     private void move(){
@@ -42,15 +40,13 @@ public class Horse implements Runnable {
             move();
             sleep();
         }
-        finishPosition = position.getAndIncrement();
-        System.out.printf("Horse %s finished in position %s%n", name, finishPosition);
+        race.getFinishPosition().put(race.getPosition().getAndIncrement(), this);
     }
 
     @Override
     public String toString() {
         return "Horse{" +
                 "name='" + name + '\'' +
-                ", finishPosition=" + finishPosition +
                 '}';
     }
 }
