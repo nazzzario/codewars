@@ -1,0 +1,15 @@
+
+F
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
+J
+java:S1128"4Remove this unused import 'java.util.regex.Matcher'.(ëÅ›ã
+O
+java:S1128"4Remove this unused import 'java.util.regex.Pattern'.(Ã•…Äúÿÿÿÿ
+S
+java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ
+F
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(À¯Ïå
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¶€Ç¯ûÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(«Ë¾ñ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ÓüŒ»ûÿÿÿÿ

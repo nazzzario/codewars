@@ -1,0 +1,11 @@
+
+[	java:S112c"FDefine and throw a dedicated exception instead of using a generic one.(¦¹»®
+a	java:S112Á"FDefine and throw a dedicated exception instead of using a generic one.(ðµõ£ûÿÿÿÿ
+a	java:S112Å"FDefine and throw a dedicated exception instead of using a generic one.(ðµõ£ûÿÿÿÿ
+n	java:S135+"YReduce the total number of break and continue statements in this loop to use at most one.(ÙòÈ—
+F
+java:S1172"1Remove this unused method parameter "expression".(°«›
+N	java:S106"9Replace this use of System.out or System.err by a logger.(¹°Ã¦
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ãæƒ¨
+m
+java:S3776("RRefactor this method to reduce its Cognitive Complexity from 41 to the 15 allowed.(Êø‹äÿÿÿÿÿ

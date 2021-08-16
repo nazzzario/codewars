@@ -35,3 +35,15 @@ a
 1src/com/nkrasnovoronka/tasks/codewars/Task21.java,a/c/ac79c4fb6b428be39fead8f68e125939ad77ae95
 a
 1src/com/nkrasnovoronka/tasks/codewars/Task22.java,5/8/581145d9fd63686cebbd796b833addb2dc8e2ad7
+`
+0src/com/nkrasnovoronka/tasks/codewars/Task5.java,9/1/9172f4e6268ef6487b1d1aec0d5bf3bb2f2c0544
+`
+0src/com/nkrasnovoronka/tasks/codewars/Task6.java,0/4/04dffcce53596cb4bc85fbf0a1c5b6e374057606
+`
+0src/com/nkrasnovoronka/tasks/codewars/Task7.java,f/5/f573b5dd3c1f9ee2bcef0fdeafe0a51f059da328
+`
+0src/com/nkrasnovoronka/tasks/codewars/Task8.java,a/3/a3093c3327e990e7f15377072bbed513a034651e
+`
+0src/com/nkrasnovoronka/tasks/codewars/Task9.java,2/1/21387e8f9157fbcde1e81c75e7225b39dad0700c
+a
+1src/com/nkrasnovoronka/tasks/codewars/Task10.java,c/b/cb6b786817e25d7c92c3c50297ddf680d83cb12c
