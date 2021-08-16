@@ -5,11 +5,11 @@
          version="3.1">
     <display-name>Unit 16 Servlet</display-name>
     <servlet>
-        <servlet-name>sample-servlet</servlet-name>
-        <servlet-class>com.nkrasnovoronka.SampleServlet</servlet-class>
+        <servlet-name>address-servlet</servlet-name>
+        <servlet-class>com.nkrasnovoronka.servlet.AddressServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>sample-servlet</servlet-name>
-        <url-pattern>/sample</url-pattern>
+        <servlet-name>address-servlet</servlet-name>
+        <url-pattern>/address</url-pattern>
     </servlet-mapping>
 </web-app>
